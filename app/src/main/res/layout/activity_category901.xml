@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.freeparking.zack.a_plus_practice.Category901"
+    android:padding="0dp"
+    android:background="#000000">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentBottom="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:text="Networking"
+            android:id="@+id/networkingButton"
+            android:background="@drawable/button_border"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/hardwareButton"
+            android:onClick="onNetworkingButtonClick"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:text="Printers"
+            android:id="@+id/printerButton"
+            android:background="@drawable/button_border"
+            android:layout_below="@+id/miscButton"
+            android:layout_alignParentStart="true"
+            android:onClick="onPrinterButtonClick"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:text="Motherboards"
+            android:id="@+id/motherboardButton"
+            android:onClick="onMotherboardButtonClick"
+            android:textColor="#ffffff"
+            android:background="@drawable/button_border"
+            android:layout_below="@+id/storageButton"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="General Study"
+            android:id="@+id/hardwareButton"
+            android:onClick="onHardwareButtonClick"
+            android:textColor="#ffffff"
+            android:background="@drawable/button_border"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:text="RAM"
+            android:id="@+id/ramButton"
+            android:onClick="onRamButtonClick"
+            android:textColor="#ffffff"
+            android:background="@drawable/button_border"
+            android:layout_below="@+id/biosButton"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:text="BIOS"
+            android:id="@+id/biosButton"
+            android:textColor="#ffffff"
+            android:onClick="onBiosButtonClick"
+            android:background="@drawable/button_border"
+            android:layout_below="@+id/cableAndTransferButton"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:text="Cable and Transfer"
+            android:id="@+id/cableAndTransferButton"
+            android:background="@drawable/button_border"
+            android:layout_below="@+id/printerButton"
+            android:layout_alignParentStart="true"
+            android:onClick="onCableAndTransferButtonClick"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:text="MISC"
+            android:id="@+id/miscButton"
+            android:background="@drawable/button_border"
+            android:layout_below="@+id/motherboardButton"
+            android:layout_alignParentStart="true"
+            android:onClick="onMiscButtonClick"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:text="CPU"
+            android:id="@+id/cpuButton"
+            android:background="@drawable/button_border"
+            android:layout_below="@+id/ramButton"
+            android:layout_alignParentStart="true"
+            android:onClick="onCpuButtonClick"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:text="Storage"
+            android:id="@+id/storageButton"
+            android:background="@drawable/button_border"
+            android:layout_below="@+id/networkingButton"
+            android:layout_alignParentStart="true"
+            android:onClick="onStorageButtonClick"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+</ScrollView>
+
+
+
+</RelativeLayout>
