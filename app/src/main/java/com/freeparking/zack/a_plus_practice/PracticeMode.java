@@ -1,8 +1,10 @@
 package com.freeparking.zack.a_plus_practice;
 
+import android.animation.Animator;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +12,8 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,11 +26,15 @@ public class PracticeMode extends AppCompatActivity {
     ImageButton previousButton;
     TextView questionTextView;
     TextView answerTextView;
+    TextView shuffleTextView;
     Button struggleButton;
     Button notStruggleButton;
     SQLiteDatabase strugglingDB = null;
     List<Question> questionListGlobal;
     List<Question> listOfAllStrugglingQuestions;
+    RelativeLayout shuffleRelativeLayout;
+    RelativeLayout topRelativeLayout;
+    RelativeLayout bottomRelativeLayout;
     int indexTheUserIsOn;
 
     int testCounter;
@@ -41,10 +49,14 @@ public class PracticeMode extends AppCompatActivity {
         //Initializing buttons and views.
         questionTextView = (TextView) findViewById(R.id.questionTextView);
         answerTextView = (TextView) findViewById(R.id.answerTextView);
+        shuffleTextView = (TextView) findViewById(R.id.shufflingTextView);
         nextButton = (ImageButton) findViewById(R.id.nextButtonAction);
         previousButton = (ImageButton) findViewById(R.id.backButtonAction);
         struggleButton = (Button) findViewById(R.id.strugglingButton);
         notStruggleButton = (Button) findViewById(R.id.notStrugglingButton);
+        shuffleRelativeLayout = (RelativeLayout) findViewById(R.id.shufflingRelativeLayout);
+        topRelativeLayout = (RelativeLayout) findViewById(R.id.topRelativeLayout);
+        bottomRelativeLayout = (RelativeLayout) findViewById(R.id.bottomRelativeLayout);
         answerTextView.setText("");
 
         //Begin by initializing the database.
@@ -280,8 +292,9 @@ public class PracticeMode extends AppCompatActivity {
     public void globalListAndIndexManager(){
         int listSize = questionListGlobal.size();
         if(indexTheUserIsOn == listSize){
-            //I need to somehow inform the user that the flashcards are re-shuffling.
-            //Maybe an animation?
+
+            shuffleFadeIn();
+
             Collections.shuffle(questionListGlobal);
             indexTheUserIsOn = 0;
         }
@@ -302,6 +315,61 @@ public class PracticeMode extends AppCompatActivity {
         //Delete the item that matches.
         strugglingDB.execSQL("DELETE FROM questions WHERE questionText = '" +
                 encodedQuestion + "';");
+    }
+
+    public void shuffleFadeIn(){
+        shuffleRelativeLayout.setAlpha(0f);
+        shuffleRelativeLayout.setVisibility(View.VISIBLE);
+        shuffleRelativeLayout.animate().alpha(1f).setDuration(1000).setListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                topRelativeLayout.setVisibility(View.GONE);
+                bottomRelativeLayout.setVisibility(View.GONE);
+                shuffleRelativeLayout.setVisibility(View.VISIBLE);
+                shuffleTextView.startAnimation(AnimationUtils.loadAnimation(PracticeMode.this, android.R.anim.slide_in_left));
+            }
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                shuffleFadeOut();
+            }
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+    }
+    public void shuffleFadeOut(){
+        shuffleRelativeLayout.animate().alpha(0f).setDuration(1000).setListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                topRelativeLayout.setVisibility(View.VISIBLE);
+                bottomRelativeLayout.setVisibility(View.VISIBLE);
+                nextButton.setClickable(false);
+                previousButton.setClickable(false);
+                shuffleTextView.startAnimation(AnimationUtils.loadAnimation(PracticeMode.this, android.R.anim.slide_out_right));
+                shuffleTextView.setVisibility(View.INVISIBLE);
+            }
+            @Override
+            public void onAnimationEnd(Animator animation) {
+
+                shuffleRelativeLayout.setVisibility(View.GONE);
+                shuffleTextView.setVisibility(View.VISIBLE);
+                nextButton.setClickable(true);
+                previousButton.setClickable(true);
+            }
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
     }
 
 
