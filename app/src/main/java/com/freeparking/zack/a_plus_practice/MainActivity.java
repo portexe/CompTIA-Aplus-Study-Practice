@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         button901 = (Button) findViewById(R.id.button901);
         button902 = (Button) findViewById(R.id.button902);
         strugglingButton = (Button) findViewById(R.id.strugglingButton);
-        relevantButton = (Button) findViewById(R.id.relevantButton);
 
         //Begin by initializing the database.
         createDatabase();

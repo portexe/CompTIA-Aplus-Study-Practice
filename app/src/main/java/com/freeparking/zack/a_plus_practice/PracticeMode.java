@@ -24,6 +24,7 @@ public class PracticeMode extends AppCompatActivity {
     TextView answerTextView;
     Button struggleButton;
     Button notStruggleButton;
+    Button relevantButton;
     SQLiteDatabase strugglingDB = null;
     List<Question> questionListGlobal;
     List<Question> listOfAllStrugglingQuestions;
@@ -45,6 +46,7 @@ public class PracticeMode extends AppCompatActivity {
         previousButton = (ImageButton) findViewById(R.id.backButtonAction);
         struggleButton = (Button) findViewById(R.id.strugglingButton);
         notStruggleButton = (Button) findViewById(R.id.notStrugglingButton);
+        relevantButton = (Button) findViewById(R.id.relevantButton);
         answerTextView.setText("");
 
         //Begin by initializing the database.
