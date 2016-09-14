@@ -269,6 +269,11 @@ public class PracticeMode extends AppCompatActivity {
         addQuestionToDB(questionUserIsOn);
     }
 
+    public void onRelevantButtonClick(View view){
+
+        Question questionUserIsOn = questionListGlobal.get(indexTheUserIsOn);
+    }
+
     public void onNotStrugglingButtonClick(View view){
 
         Question questionUserIsOn = questionListGlobal.get(indexTheUserIsOn);

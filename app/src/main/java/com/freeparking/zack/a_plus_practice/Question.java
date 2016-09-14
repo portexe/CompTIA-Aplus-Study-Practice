@@ -73,7 +73,4 @@ public class Question {
     public void setCategory(String category) {
         this.category = category;
     }
-
-
-
 }
