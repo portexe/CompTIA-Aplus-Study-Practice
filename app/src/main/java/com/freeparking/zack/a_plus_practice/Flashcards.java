@@ -1,7 +1,6 @@
 package com.freeparking.zack.a_plus_practice;
 
 import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -826,7 +825,7 @@ public class Flashcards {
             {"Windows tool that allows you to view all current running programs and services.",
                     "Task manager"},
             {"Windows tool that allows you to create, edit, and delete partitions.",
-                    "Windwos Disk Management"},
+                    "Windows Disk Management"},
             {"Key/Value pair system used by the Windows Kernel, drivers, and services.",
                     "Registry"},
             {"Windows' basic built-in text editor.",
@@ -849,6 +848,22 @@ public class Flashcards {
                     "System/System Information"},
     };
 
+    public String[][] security = {
+            {"Which type of password attack tries every possible combination of letters and number until the password is guessed?",
+                    "Brute Force"},
+            {"",
+                ""},
+    };
+
+    public String[][] softwareTroubleshooting = {
+            {"A customer reports that their LCD laptop display had been becoming gradually dimmer over the past two weeks. They have increased the display brightness to compensate and finally switched to an external monitor which works perfectly. What is the MOST likely cause of the problem?",
+                "Faulty LCD Monitor Backlight"},
+            {"A user calls and explains that they were visiting a website and received a pop-up on their computer alerting about a virus infection. The pop-up included a alarm sound and flashing colors. The alert prompted them to download an anti-virus tool to clean their computer. What should you recommend?",
+                "Carefully close the web browser and perform your own anti-malware scan. If malware is detected, remove it."},
+            {"",
+                ""},
+    };
+
     public List<Question> convertStringListToQuestionList(List<String[]> stringList, String category){
         List<Question> questionList = new ArrayList<>();
         for(String[] s : stringList){
@@ -864,107 +879,135 @@ public class Flashcards {
     }
 
     //901
-    public List<Question> getAll901Cards() {
-        List<Question> listToReturn = new ArrayList<>();
-        listToReturn.addAll(getBiosFlashcards());
-        listToReturn.addAll(getMotherboardFlashcards());
-        listToReturn.addAll(getRamFlashcards());
-        listToReturn.addAll(getStorageFlashcards());
-        listToReturn.addAll(getPrinterFlashcards());
-        listToReturn.addAll(getNetworkingFlashcards());
-        listToReturn.addAll(getMiscFlashcards());
-        listToReturn.addAll(getCableAndTransferFlashcards());
-        listToReturn.addAll(getCpuFlashcards());
+        public List<Question> getGeneralStudy901Cards() {
+            List<Question> listToReturn = new ArrayList<>();
+            listToReturn.addAll(getBiosFlashcards());
+            listToReturn.addAll(getMotherboardFlashcards());
+            listToReturn.addAll(getRamFlashcards());
+            listToReturn.addAll(getStorageFlashcards());
+            listToReturn.addAll(getPrinterFlashcards());
+            listToReturn.addAll(getNetworkingFlashcards());
+            listToReturn.addAll(getMiscFlashcards());
+            listToReturn.addAll(getCableAndTransferFlashcards());
+            listToReturn.addAll(getCpuFlashcards());
 
-        return listToReturn;
-    }
-
-    public List<Question> getBiosFlashcards() {
-        List<String[]> listToReturn = new ArrayList();
-        for (String[] i : biosFlashcards) {
-            listToReturn.add(i);
+            return listToReturn;
         }
-        return convertStringListToQuestionList(listToReturn, "BIOS");
-    }
 
-    public List<Question> getMotherboardFlashcards() {
-        List<String[]> listToReturn = new ArrayList();
-        for (String[] i : motherboardFlashcards) {
-            listToReturn.add(i);
+        public List<Question> getBiosFlashcards() {
+            List<String[]> listToReturn = new ArrayList();
+            for (String[] i : biosFlashcards) {
+                listToReturn.add(i);
+            }
+            return convertStringListToQuestionList(listToReturn, "BIOS");
         }
-        return convertStringListToQuestionList(listToReturn, "MOTHERBOARD");
-    }
 
-    public List<Question> getRamFlashcards() {
-        List<String[]> listToReturn = new ArrayList();
-        for (String[] i : ramFlashcards) {
-            listToReturn.add(i);
+        public List<Question> getMotherboardFlashcards() {
+            List<String[]> listToReturn = new ArrayList();
+            for (String[] i : motherboardFlashcards) {
+                listToReturn.add(i);
+            }
+            return convertStringListToQuestionList(listToReturn, "MOTHERBOARD");
         }
-        return convertStringListToQuestionList(listToReturn, "RAM");
-    }
 
-    public List<Question> getStorageFlashcards() {
-        List<String[]> listToReturn = new ArrayList();
-        for (String[] i : storageFlashcards) {
-            listToReturn.add(i);
+        public List<Question> getRamFlashcards() {
+            List<String[]> listToReturn = new ArrayList();
+            for (String[] i : ramFlashcards) {
+                listToReturn.add(i);
+            }
+            return convertStringListToQuestionList(listToReturn, "RAM");
         }
-        return convertStringListToQuestionList(listToReturn, "STORAGE");
-    }
 
-    public List<Question> getPrinterFlashcards() {
-        List<String[]> listToReturn = new ArrayList();
-        for (String[] i : printerFlashcards) {
-            listToReturn.add(i);
+        public List<Question> getStorageFlashcards() {
+            List<String[]> listToReturn = new ArrayList();
+            for (String[] i : storageFlashcards) {
+                listToReturn.add(i);
+            }
+            return convertStringListToQuestionList(listToReturn, "STORAGE");
         }
-        return convertStringListToQuestionList(listToReturn, "PRINTER");
-    }
 
-    public List<Question> getNetworkingFlashcards() {
-        List<String[]> listToReturn = new ArrayList();
-        for (String[] i : networkingFlashcards) {
-            listToReturn.add(i);
+        public List<Question> getPrinterFlashcards() {
+            List<String[]> listToReturn = new ArrayList();
+            for (String[] i : printerFlashcards) {
+                listToReturn.add(i);
+            }
+            return convertStringListToQuestionList(listToReturn, "PRINTER");
         }
-        return convertStringListToQuestionList(listToReturn, "NETWORKING");
-    }
 
-    public List<Question> getMiscFlashcards() {
-        List<String[]> listToReturn = new ArrayList();
-        for (String[] i : miscFlashcards) {
-            listToReturn.add(i);
+        public List<Question> getNetworkingFlashcards() {
+            List<String[]> listToReturn = new ArrayList();
+            for (String[] i : networkingFlashcards) {
+                listToReturn.add(i);
+            }
+            return convertStringListToQuestionList(listToReturn, "NETWORKING");
         }
-        return convertStringListToQuestionList(listToReturn, "MISC");
-    }
 
-    public List<Question> getCableAndTransferFlashcards() {
-        List<String[]> listToReturn = new ArrayList();
-        for (String[] i : cableAndTransferFlashcards) {
-            listToReturn.add(i);
+        public List<Question> getMiscFlashcards() {
+            List<String[]> listToReturn = new ArrayList();
+            for (String[] i : miscFlashcards) {
+                listToReturn.add(i);
+            }
+            return convertStringListToQuestionList(listToReturn, "MISC");
         }
-        return convertStringListToQuestionList(listToReturn, "CABLEANDTRANSFER");
-    }
 
-    public List<Question> getCpuFlashcards() {
-        List<String[]> listToReturn = new ArrayList();
-        for (String[] i : cpuFlashcards) {
-            listToReturn.add(i);
+        public List<Question> getCableAndTransferFlashcards() {
+            List<String[]> listToReturn = new ArrayList();
+            for (String[] i : cableAndTransferFlashcards) {
+                listToReturn.add(i);
+            }
+            return convertStringListToQuestionList(listToReturn, "CABLEANDTRANSFER");
         }
-        return convertStringListToQuestionList(listToReturn, "CPU");
-    }
+
+        public List<Question> getCpuFlashcards() {
+            List<String[]> listToReturn = new ArrayList();
+            for (String[] i : cpuFlashcards) {
+                listToReturn.add(i);
+            }
+            return convertStringListToQuestionList(listToReturn, "CPU");
+        }
 
     //902
-    public List<Question> getCommandLineToolsFlashcards() {
-        List<String[]> listToReturn = new ArrayList();
-        for (String[] i : commandLineTools) {
-            listToReturn.add(i);
-        }
-        return convertStringListToQuestionList(listToReturn, "COMMANDLINETOOLSL");
-    }
+        public List<Question> getGeneralStudy902Cards() {
+            List<Question> listToReturn = new ArrayList<>();
 
-    public List<Question> getWindowsFeaturesFlashcards() {
-        List<String[]> listToReturn = new ArrayList();
-        for (String[] i : windowsFeaturesAndRequirements) {
-            listToReturn.add(i);
+            listToReturn.addAll(getCommandLineToolsFlashcards());
+            listToReturn.addAll(getWindowsFeaturesFlashcards());
+            listToReturn.addAll(getSecurityFlashcards());
+            listToReturn.addAll(getSoftwareTroubleshootingFlashcards());
+
+            return listToReturn;
         }
-        return convertStringListToQuestionList(listToReturn, "WINDOWSFEATURES");
-    }
+
+        public List<Question> getCommandLineToolsFlashcards() {
+            List<String[]> listToReturn = new ArrayList();
+            for (String[] i : commandLineTools) {
+                listToReturn.add(i);
+            }
+            return convertStringListToQuestionList(listToReturn, "COMMANDLINETOOLS");
+        }
+
+        public List<Question> getWindowsFeaturesFlashcards() {
+            List<String[]> listToReturn = new ArrayList();
+            for (String[] i : windowsFeaturesAndRequirements) {
+                listToReturn.add(i);
+            }
+            return convertStringListToQuestionList(listToReturn, "WINDOWSFEATURES");
+        }
+
+        public List<Question> getSecurityFlashcards() {
+        List<String[]> listToReturn = new ArrayList();
+        for (String[] i : security) {
+            listToReturn.add(i);
+            }
+            return convertStringListToQuestionList(listToReturn, "SECURITY");
+        }
+
+        public List<Question> getSoftwareTroubleshootingFlashcards()
+        {
+            List<String[]> listToReturn = new ArrayList();
+            for (String[] i : softwareTroubleshooting) {
+                listToReturn.add(i);
+            }
+            return convertStringListToQuestionList(listToReturn, "SOFTWARETROUBLESHOOTING");
+        }
 }
