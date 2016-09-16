@@ -20,15 +20,73 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
+                android:text="902 General Study"
+                android:id="@+id/general902StudyButton"
+                android:background="@drawable/button_border"
+                android:onClick="onGeneral902StudyButtonClick"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="5dp"
+                android:layout_centerInParent="true" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
                 android:text="Command-Line Tools"
                 android:id="@+id/commandLineToolsButton"
                 android:background="@drawable/button_border"
                 android:onClick="onCommandLineToolsButtonClick"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_alignParentTop="true"
+                android:layout_alignParentTop="false"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true" />
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="5dp"
+                android:layout_below="@+id/general902StudyButton"
+                android:layout_alignParentBottom="false"
+                android:layout_centerInParent="true" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="Security"
+                android:id="@+id/securityButton"
+                android:background="@drawable/button_border"
+                android:onClick="onSecurityButtonClick"
+                android:layout_alignParentBottom="false"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/commandLineToolsButton"
+                android:layout_centerInParent="true"
+                android:layout_alignParentTop="false"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="5dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="Software Troubleshooting"
+                android:id="@+id/softwareTroubleshootingButton"
+                android:background="@drawable/button_border"
+                android:onClick="onSoftwareTroubleshootingButtonClick"
+                android:layout_centerInParent="true"
+                android:layout_below="@+id/securityButton"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="false"
+                android:layout_alignParentBottom="false"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="5dp" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -40,8 +98,11 @@
                 android:layout_alignParentTop="false"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
-                android:layout_margin="10dp"
-                android:layout_below="@+id/commandLineToolsButton" />
+                android:layout_below="@+id/softwareTroubleshootingButton"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="5dp" />
 
         </RelativeLayout>
     </ScrollView>

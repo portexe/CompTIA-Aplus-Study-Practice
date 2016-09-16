@@ -10,7 +10,7 @@ public class Category901 extends AppCompatActivity {
 
     Button cableAndTransferButton;
     Button networkingButton;
-    Button hardwareButton;
+    Button general901StudyButton;
     Button biosButton;
     Button ramButton;
     Button printerButton;
@@ -27,7 +27,7 @@ public class Category901 extends AppCompatActivity {
         //Initializing all of my button objects.
         cableAndTransferButton = (Button) findViewById(R.id.cableAndTransferButton);
         networkingButton = (Button) findViewById(R.id.networkingButton);
-        hardwareButton = (Button) findViewById(R.id.hardwareButton);
+        general901StudyButton = (Button) findViewById(R.id.general901StudyButton);
         biosButton = (Button) findViewById(R.id.biosButton);
         ramButton = (Button) findViewById(R.id.ramButton);
         printerButton = (Button) findViewById(R.id.printerButton);
@@ -54,11 +54,11 @@ public class Category901 extends AppCompatActivity {
     }
 
     //Etc...
-    public void onHardwareButtonClick(View View){
-        hardwareButton.setBackgroundResource(R.drawable.border_button_clicked);
-        Intent hardwareButtonIntent = new Intent(this, PracticeMode.class);
-        hardwareButtonIntent.putExtra("CHOICE", "GENERAL");
-        startActivity(hardwareButtonIntent);
+    public void onGeneral901StudyButtonClick(View View){
+        general901StudyButton.setBackgroundResource(R.drawable.border_button_clicked);
+        Intent general901StudyIntent = new Intent(this, PracticeMode.class);
+        general901StudyIntent.putExtra("CHOICE", "GENERAL901STUDY");
+        startActivity(general901StudyIntent);
     }
 
     //Etc...
@@ -137,7 +137,7 @@ public class Category901 extends AppCompatActivity {
         motherboardButton.setBackgroundResource(R.drawable.button_border);
         biosButton.setBackgroundResource(R.drawable.button_border);
         cableAndTransferButton.setBackgroundResource(R.drawable.button_border);
-        hardwareButton.setBackgroundResource(R.drawable.button_border);
+        general901StudyButton.setBackgroundResource(R.drawable.button_border);
     }
 
     //onStop is called whenever the activity is no longer visible to the user.

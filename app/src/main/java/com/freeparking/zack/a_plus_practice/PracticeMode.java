@@ -98,8 +98,11 @@ public class PracticeMode extends AppCompatActivity {
         Flashcards fc = new Flashcards();
 
         switch (choice) {
-            case "GENERAL":
-                initializeQuestionObjects(fc.getAll901Cards());
+            case "GENERAL901STUDY":
+                initializeQuestionObjects(fc.getGeneralStudy901Cards());
+                break;
+            case "GENERAL902STUDY":
+                initializeQuestionObjects(fc.getGeneralStudy902Cards());
                 break;
             case "BIOS":
                 initializeQuestionObjects(fc.getBiosFlashcards());
@@ -130,6 +133,12 @@ public class PracticeMode extends AppCompatActivity {
                 break;
             case "COMMANDLINETOOLS":
                 initializeQuestionObjects(fc.getCommandLineToolsFlashcards());
+                break;
+            case "SECURITY":
+                initializeQuestionObjects(fc.getSecurityFlashcards());
+                break;
+            case "SOFTWARETROUBLESHOOTING":
+                initializeQuestionObjects(fc.getSoftwareTroubleshootingFlashcards());
                 break;
             case "WINDOWSFEATURES":
                 initializeQuestionObjects(fc.getWindowsFeaturesFlashcards());
