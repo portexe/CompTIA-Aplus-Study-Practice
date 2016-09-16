@@ -76,6 +76,12 @@ public class PracticeMode extends AppCompatActivity {
         displayNextQuestion(0);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        createDatabase();
+    }
+
     //Initializes the database.
     public void createDatabase(){
         try {
