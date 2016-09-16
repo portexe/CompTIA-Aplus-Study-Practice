@@ -898,8 +898,6 @@ public class Flashcards {
                 "Faulty LCD Monitor Backlight"},
             {"A user calls and explains that they were visiting a website and received a pop-up on their computer alerting about a virus infection. The pop-up included a alarm sound and flashing colors. The alert prompted them to download an anti-virus tool to clean their computer. What should you recommend?",
                 "Carefully close the web browser and perform your own anti-malware scan. If malware is detected, remove it."},
-            {"",
-                ""},
     };
 
     public List<Question> convertStringListToQuestionList(List<String[]> stringList, String category){
