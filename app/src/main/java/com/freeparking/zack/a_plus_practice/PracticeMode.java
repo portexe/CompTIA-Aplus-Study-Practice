@@ -15,6 +15,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -36,8 +38,11 @@ public class PracticeMode extends AppCompatActivity {
     RelativeLayout topRelativeLayout;
     RelativeLayout bottomRelativeLayout;
     int indexTheUserIsOn;
-
     int testCounter;
+
+    //Used only to differentiate between normal practice mode and
+    //struggle practice mode.
+    boolean strugglePractice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,13 +67,20 @@ public class PracticeMode extends AppCompatActivity {
         //Begin by initializing the database.
         createDatabase();
 
-        listOfAllStrugglingQuestions();;
+        listOfAllStrugglingQuestions();
 
         indexTheUserIsOn = 0;
 
         //Grab the intent extras from the previous activity.
         Intent choiceIntent = getIntent();
         String choice = choiceIntent.getStringExtra("CHOICE");
+
+        //Determines if the user is on struggle practice mode, or normal practice mode.
+        if(choice.equals("STRUGGLING")){
+            strugglePractice = true;
+        }else{
+            strugglePractice = false;
+        }
 
         //Get the proper questions based on the intent extra.
         getProperQuestions(choice);
@@ -302,14 +314,45 @@ public class PracticeMode extends AppCompatActivity {
         questionUserIsOn.setStruggling(false);
         strugglingButtonManager();
         removeQuestionFromDB(questionUserIsOn);
+
+        //If the user is in struggle practice mode and there are no longer
+        //any questions in the struggle database, return the user to
+        //the main activity.
+        if(!checkIfDBIsValid() && strugglePractice){
+            Intent noMoreQuestionsIntent = new Intent(this, MainActivity.class);
+            startActivity(noMoreQuestionsIntent);
+            Toast.makeText(PracticeMode.this, "Not struggling with any more questions.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //Checks to see if there are any items stored in the database.
+    public boolean checkIfDBIsValid(){
+        Cursor cursor = strugglingDB.rawQuery("SELECT * FROM questions", null);
+        //If there are 0 results from the query.
+        if(cursor.getCount() < 1){
+            cursor.close();
+            return false;
+        }else{
+            cursor.close();
+            return true;
+        }
     }
 
     public void globalListAndIndexManager(){
+
         int listSize = questionListGlobal.size();
-        if(indexTheUserIsOn == listSize){
-
+        if(indexTheUserIsOn == listSize && !strugglePractice) {
             shuffleFadeIn();
+            Collections.shuffle(questionListGlobal);
+            indexTheUserIsOn = 0;
 
+        //If the user has went through all of the flashcards, and is
+        //in struggle practice mode, we recreate the list of questions to
+        //exclude the questions the user is no longer struggling with.
+        }else if(indexTheUserIsOn == listSize && strugglePractice){
+            listOfAllStrugglingQuestions();
+            getProperQuestions("STRUGGLING");
+            shuffleFadeIn();
             Collections.shuffle(questionListGlobal);
             indexTheUserIsOn = 0;
         }
