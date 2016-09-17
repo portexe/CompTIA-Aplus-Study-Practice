@@ -27,6 +27,9 @@ public class Category902 extends AppCompatActivity {
     }
 
     public void onGeneral902StudyButtonClick(View View){
+
+        Metrics.pageUserIsOn = Metrics.pageUserIsOn.concat("General");
+
         general902StudyButton.setBackgroundResource(R.drawable.border_button_clicked);
         Intent general902StudyButtonIntent = new Intent(this, PracticeMode.class);
         general902StudyButtonIntent.putExtra("CHOICE", "GENERAL902STUDY");
@@ -34,6 +37,8 @@ public class Category902 extends AppCompatActivity {
     }
 
     public void onWindowsFeaturesButtonClick(View view){
+
+        Metrics.pageUserIsOn = Metrics.pageUserIsOn.concat("WindowsFeatures");
 
         //When a button is clicked, I change the border to a yellow color.
         windowsFeaturesButton.setBackgroundResource(R.drawable.border_button_clicked);
@@ -50,6 +55,9 @@ public class Category902 extends AppCompatActivity {
 
     //Etc...
     public void onCommandLineToolsButtonClick(View view){
+
+        Metrics.pageUserIsOn = Metrics.pageUserIsOn.concat("CommandLineTools");
+
         commandLineToolsButton.setBackgroundResource(R.drawable.border_button_clicked);
         Intent commandLineToolsIntent = new Intent(this, PracticeMode.class);
         commandLineToolsIntent.putExtra("CHOICE", "COMMANDLINETOOLS");
@@ -57,6 +65,9 @@ public class Category902 extends AppCompatActivity {
     }
 
     public void onSecurityButtonClick(View view){
+
+        Metrics.pageUserIsOn = Metrics.pageUserIsOn.concat("Security");
+
         securityButton.setBackgroundResource(R.drawable.border_button_clicked);
         Intent securityIntent = new Intent(this, PracticeMode.class);
         securityIntent.putExtra("CHOICE", "SECURITY");
@@ -64,6 +75,9 @@ public class Category902 extends AppCompatActivity {
     }
 
     public void onSoftwareTroubleshootingButtonClick(View view){
+
+        Metrics.pageUserIsOn = Metrics.pageUserIsOn.concat("Software");
+
         softwareTroubleshootingButton.setBackgroundResource(R.drawable.border_button_clicked);
         Intent softwareTroubleshootingIntent = new Intent(this, PracticeMode.class);
         softwareTroubleshootingIntent.putExtra("CHOICE", "SOFTWARETROUBLESHOOTING");

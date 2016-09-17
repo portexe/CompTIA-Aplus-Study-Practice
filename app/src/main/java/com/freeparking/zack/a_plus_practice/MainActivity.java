@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
     //When the 901 button is clicked.
     public void onButton901Click(View view){
 
+        Metrics.pageUserIsOn = "901";
         //When a button is clicked, I change the border to a yellow color.
         button901.setBackgroundResource(R.drawable.border_button_clicked);
 
@@ -76,6 +77,9 @@ public class MainActivity extends AppCompatActivity {
 
     //Etc...
     public void onButton902Click(View view){
+
+        Metrics.pageUserIsOn = "902";
+
         button902.setBackgroundResource(R.drawable.border_button_clicked);
         Intent button902Intent = new Intent(this, Category902.class);
         startActivity(button902Intent);
@@ -83,6 +87,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onStrugglingButtonClick(View view){
+
+        Metrics.pageUserIsOn = "Struggle";
+
         //Check to see if there are any items stored in the database.
         if(checkIfDBIsValid()){
 

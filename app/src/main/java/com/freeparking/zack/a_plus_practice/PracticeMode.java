@@ -15,6 +15,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -31,7 +33,7 @@ public class PracticeMode extends AppCompatActivity {
     Button notStruggleButton;
     SQLiteDatabase strugglingDB = null;
     List<Question> questionListGlobal;
-    List<Question> listOfAllStrugglingQuestions;
+    static List<Question> listOfAllStrugglingQuestions;
     RelativeLayout shuffleRelativeLayout;
     RelativeLayout topRelativeLayout;
     RelativeLayout bottomRelativeLayout;
@@ -62,7 +64,7 @@ public class PracticeMode extends AppCompatActivity {
         //Begin by initializing the database.
         createDatabase();
 
-        listOfAllStrugglingQuestions();;
+        listOfAllStrugglingQuestions();
 
         indexTheUserIsOn = 0;
 
@@ -159,6 +161,19 @@ public class PracticeMode extends AppCompatActivity {
         questionListGlobal = questionList;
         Log.d("Question", questionListGlobal.get(0).getQuestionText());
         Log.d("Answer", questionListGlobal.get(0).getAnswerText());
+        applyBackButtonRule();
+    }
+
+    public void applyBackButtonRule()
+    {
+        if(indexTheUserIsOn == 0)
+        {
+            previousButton.setVisibility(View.GONE);
+        }
+        else
+        {
+            previousButton.setVisibility(View.VISIBLE);
+        }
     }
 
     public boolean isUserStruggling(Question questionToCheck){
@@ -222,9 +237,13 @@ public class PracticeMode extends AppCompatActivity {
         return stringToReturn;
     }
 
-    public void displayNextQuestion(int backOrForward){
+    public void displayNextQuestion(int backOrForward)
+    {
         indexTheUserIsOn += backOrForward;
+
         globalListAndIndexManager();
+
+        applyBackButtonRule();
 
         strugglingButtonManager();
 
@@ -263,7 +282,7 @@ public class PracticeMode extends AppCompatActivity {
     }
 
     public void strugglingButtonManager(){
-        if(!questionListGlobal.get(indexTheUserIsOn).isStruggling()){
+        if(! questionListGlobal.get(indexTheUserIsOn).isStruggling()){
             notStruggleButton.setVisibility(View.GONE);
             struggleButton.setVisibility(View.VISIBLE);
         }else{
@@ -273,10 +292,13 @@ public class PracticeMode extends AppCompatActivity {
     }
 
     public void onNextQuestionButtonClick(View view){
+
         String answerText = answerTextView.getText().toString();
         if(answerText.equals("")){
             displayAnswer();
-        }else{
+        }
+        else
+        {
             displayNextQuestion(1);
         }
     }
@@ -299,19 +321,34 @@ public class PracticeMode extends AppCompatActivity {
     public void onNotStrugglingButtonClick(View view){
 
         Question questionUserIsOn = questionListGlobal.get(indexTheUserIsOn);
-        questionUserIsOn.setStruggling(false);
-        strugglingButtonManager();
+
+        if(Metrics.pageUserIsOn.equals("Struggle") )
+        {
+            if(questionUserIsOn.isLastQuestionInStruggling())
+            {
+                Toast.makeText(PracticeMode.this, "You have emptied your struggle list!", Toast.LENGTH_LONG).show();
+                finish();
+            }
+            else
+            {
+                Toast.makeText(PracticeMode.this, "The previous question has been removed from your struggle list.", Toast.LENGTH_LONG).show();
+                displayNextQuestion(1);
+            }
+        }
+
         removeQuestionFromDB(questionUserIsOn);
+        questionUserIsOn.setStruggling(false);
     }
 
     public void globalListAndIndexManager(){
         int listSize = questionListGlobal.size();
-        if(indexTheUserIsOn == listSize){
 
-            shuffleFadeIn();
-
+        //if the user is on the last card in the list, shuffle it
+        if(indexTheUserIsOn == listSize)
+        {
             Collections.shuffle(questionListGlobal);
             indexTheUserIsOn = 0;
+            shuffleFadeIn();
         }
     }
 
@@ -326,7 +363,7 @@ public class PracticeMode extends AppCompatActivity {
     }
     public void removeQuestionFromDB(Question q){
         String encodedQuestion = encodeStringForSql(q.getQuestionText());
-
+        
         //Delete the item that matches.
         strugglingDB.execSQL("DELETE FROM questions WHERE questionText = '" +
                 encodedQuestion + "';");
@@ -386,7 +423,6 @@ public class PracticeMode extends AppCompatActivity {
             }
         });
     }
-
 
     //Called when the activity is no longer visible to the user.
     @Override

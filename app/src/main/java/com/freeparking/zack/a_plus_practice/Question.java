@@ -74,6 +74,13 @@ public class Question {
         this.category = category;
     }
 
-
-
+    public boolean isLastQuestionInStruggling(){
+        if(PracticeMode.listOfAllStrugglingQuestions.size() == 0){
+            return true;
+        }
+        else
+        {
+           return false;
+        }
+    }
 }

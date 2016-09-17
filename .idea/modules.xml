@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/a_plus_practice.iml" filepath="$PROJECT_DIR$/a_plus_practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CompTIA-Aplus-Study-Practice.iml" filepath="$PROJECT_DIR$/CompTIA-Aplus-Study-Practice.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

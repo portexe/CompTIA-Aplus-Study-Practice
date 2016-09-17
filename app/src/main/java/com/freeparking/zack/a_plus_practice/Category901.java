@@ -39,6 +39,8 @@ public class Category901 extends AppCompatActivity {
 
     public void onNetworkingButtonClick(View view){
 
+        Metrics.pageUserIsOn = Metrics.pageUserIsOn.concat("Networking");
+
         //When a button is clicked, I change the border to a yellow color.
         networkingButton.setBackgroundResource(R.drawable.border_button_clicked);
 
@@ -55,6 +57,9 @@ public class Category901 extends AppCompatActivity {
 
     //Etc...
     public void onGeneral901StudyButtonClick(View View){
+
+        Metrics.pageUserIsOn = Metrics.pageUserIsOn.concat("General");
+
         general901StudyButton.setBackgroundResource(R.drawable.border_button_clicked);
         Intent general901StudyIntent = new Intent(this, PracticeMode.class);
         general901StudyIntent.putExtra("CHOICE", "GENERAL901STUDY");
@@ -63,6 +68,9 @@ public class Category901 extends AppCompatActivity {
 
     //Etc...
     public void onBiosButtonClick(View view){
+
+        Metrics.pageUserIsOn = Metrics.pageUserIsOn.concat("Bios");
+
         biosButton.setBackgroundResource(R.drawable.border_button_clicked);
         Intent biosButtonIntent = new Intent(this, PracticeMode.class);
         biosButtonIntent.putExtra("CHOICE","BIOS");
@@ -71,6 +79,9 @@ public class Category901 extends AppCompatActivity {
 
     //Etc...
     public void onRamButtonClick(View view){
+
+        Metrics.pageUserIsOn = Metrics.pageUserIsOn.concat("Ram");
+
         ramButton.setBackgroundResource(R.drawable.border_button_clicked);
         Intent ramIntent = new Intent(this, PracticeMode.class);
         ramIntent.putExtra("CHOICE", "RAM");
@@ -79,6 +90,9 @@ public class Category901 extends AppCompatActivity {
 
     //Etc...
     public void onMotherboardButtonClick(View view){
+
+        Metrics.pageUserIsOn = Metrics.pageUserIsOn.concat("Motherboard");
+
         motherboardButton.setBackgroundResource(R.drawable.border_button_clicked);
         Intent motherboardIntent = new Intent(this, PracticeMode.class);
         motherboardIntent.putExtra("CHOICE", "MOTHERBOARD");
@@ -87,6 +101,9 @@ public class Category901 extends AppCompatActivity {
 
     //Etc...
     public void onPrinterButtonClick(View view){
+
+        Metrics.pageUserIsOn = Metrics.pageUserIsOn.concat("Printer");
+
         printerButton.setBackgroundResource(R.drawable.border_button_clicked);
         Intent printerIntent = new Intent(this, PracticeMode.class);
         printerIntent.putExtra("CHOICE", "PRINTER");
@@ -95,6 +112,9 @@ public class Category901 extends AppCompatActivity {
 
     //Etc...
     public void onCableAndTransferButtonClick(View view){
+
+        Metrics.pageUserIsOn = Metrics.pageUserIsOn.concat("CableAndTranfer");
+
         cableAndTransferButton.setBackgroundResource(R.drawable.border_button_clicked);
         Intent cableAndTransferIntent = new Intent(this, PracticeMode.class);
         cableAndTransferIntent.putExtra("CHOICE", "CABLEANDTRANSFER");
@@ -103,6 +123,9 @@ public class Category901 extends AppCompatActivity {
 
     //Etc...
     public void onCpuButtonClick(View view){
+
+        Metrics.pageUserIsOn = Metrics.pageUserIsOn.concat("Cpu");
+
         cpuButton.setBackgroundResource(R.drawable.border_button_clicked);
         Intent cpuIntent = new Intent(this, PracticeMode.class);
         cpuIntent.putExtra("CHOICE", "CPU");
@@ -111,6 +134,9 @@ public class Category901 extends AppCompatActivity {
 
     //Etc...
     public void onMiscButtonClick(View view){
+
+        Metrics.pageUserIsOn = Metrics.pageUserIsOn.concat("Misc");
+
         miscButton.setBackgroundResource(R.drawable.border_button_clicked);
         Intent miscIntent = new Intent(this, PracticeMode.class);
         miscIntent.putExtra("CHOICE", "MISC");
@@ -119,6 +145,9 @@ public class Category901 extends AppCompatActivity {
 
     //Etc...
     public void onStorageButtonClick(View view){
+
+        Metrics.pageUserIsOn = Metrics.pageUserIsOn.concat("Storage");
+
         storageButton.setBackgroundResource(R.drawable.border_button_clicked);
         Intent storageIntent = new Intent(this, PracticeMode.class);
         storageIntent.putExtra("CHOICE", "STORAGE");
